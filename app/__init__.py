@@ -2,6 +2,7 @@ import os
 from flask import Flask
 
 from app.database.connection import config_database
+from app.database.faker_db import populate_database
 from app.routes.health_checker_route import config_routes
 
 
@@ -15,6 +16,7 @@ def create_app():
 
     config_routes(app)
     config_database(app)
+    populate_database(50)
     return app
 
 
