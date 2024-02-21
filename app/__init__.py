@@ -1,6 +1,7 @@
 import os
 from flask import Flask
 
+from app.database.connection import config_database
 from app.routes.health_checker_route import config_routes
 
 
@@ -13,8 +14,9 @@ def create_app():
         pass
 
     config_routes(app)
-    #config_database(app)
+    config_database(app)
     return app
+
 
 APP = create_app()
 
